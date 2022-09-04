@@ -1,0 +1,30 @@
+import spa.*
+import personas.*
+
+describe "test modelo spa"{
+	
+	method initialize () {
+		ramiro.bajarALaFosa()
+		ramiro.jugarAlPaddle()
+	}
+	test "ramiro tiene la piel grasosa"{
+		assert.that(ramiro.tienePielGrasosa())
+	}
+	
+	test "spa atiende a ramiro baja su contractura y piel no grasosa" {
+		spa.atender(ramiro)
+		
+
+	assert.notThat(ramiro.tienePielGrasosa())
+	assert.equals (2, ramiro.nivelDeContractura())
+
+}
+	test "ramiro se atiende 2 veces"{
+		ramiro.jugarAlPaddle()
+		ramiro.jugarAlPaddle()
+		spa.atender(ramiro)
+		spa.atender(ramiro)
+		
+	assert.equals(8, ramiro.nivelDeContractura())
+}
+}
